@@ -53,6 +53,11 @@ Route::resource('fotos', FotosController::class);
 Route::resource('datos-empresa', DatosEmpresaController::class);
 
 
-// Ajax
+// Ajax part 1
 Route::get('combo_entidad_muni/{id_pais}', [App\Http\Controllers\AjaxController::class, 'cambia_combo']);
 Route::get('combo_municipio/{id_entidad}', [App\Http\Controllers\AjaxController::class, 'cambia_combo_2']);
+
+// Ajax part 2
+Route::get('ejemplos_ajax', [App\Http\Controllers\AjaxController::class, 'ejemplos_ajax']);
+Route::get('buscar_animales_por_tipo/{id_tipo_animal}/{id_refugio}', [App\Http\Controllers\AjaxController::class, 'buscar_animales_por_tipo']);
+Route::get('cambiar_status_animal/{id_animal}/{id_tipo_animal}/{id_refugio}', [App\Http\Controllers\AjaxController::class, 'cambiar_status_animal']);

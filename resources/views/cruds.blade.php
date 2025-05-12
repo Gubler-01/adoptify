@@ -13,6 +13,7 @@
 <a href="{!! asset('seguimientos') !!}"><h1>Listar seguimientos</h1></a>
 <a href="{!! asset('vacunas') !!}"><h1>Listar vacunas</h1></a>
 <a href="{!! asset('fotos') !!}"><h1>Listar fotos</h1></a>
+<a href="{!! asset('ejemplos_ajax') !!}"><h1>Ejemplos AJAX</h1></a>
 
 <a href="{!! asset('datos-empresa') !!}"><h1>Listar datos empresa</h1></a>
 
