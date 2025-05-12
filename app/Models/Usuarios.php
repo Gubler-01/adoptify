@@ -22,6 +22,19 @@ class Usuarios extends Model
         'status'
     ];
 
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+
+    protected function casts(): array
+    {
+        return [
+            'email_verified_at' => 'datetime',
+            'password' => 'hashed',
+        ];
+    }
+
     public function roles_usuario()
     {
         return $this->belongsTo(Roles_Usuarios::class, 'id_rol', 'id');

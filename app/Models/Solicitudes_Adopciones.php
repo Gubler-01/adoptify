@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Solicitudes_Adopciones extends Model
 {
-    protected $table = 'solicitudes_adopcion';
+    protected $table = 'solicitudes_adopciones';
     protected $fillable = [
         'id_animal',
         'id_adoptante',
