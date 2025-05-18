@@ -17,6 +17,9 @@ use App\Http\Controllers\VacunasController;
 use App\Http\Controllers\SeguimientosController;
 use App\Http\Controllers\FotosController;
 use App\Http\Controllers\DatosEmpresaController;
+use App\Http\Controllers\EmailController;
+
+use App\Http\Controllers\PdfController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -57,7 +60,21 @@ Route::resource('datos-empresa', DatosEmpresaController::class);
 Route::get('combo_entidad_muni/{id_pais}', [App\Http\Controllers\AjaxController::class, 'cambia_combo']);
 Route::get('combo_municipio/{id_entidad}', [App\Http\Controllers\AjaxController::class, 'cambia_combo_2']);
 
+// Rutas para los reportes PDF
+Route::get('genera_pdf', [PdfController::class, 'genera_pdf']);
+Route::get('animales_por_refugio_y_tipo/{tipo}/{id_refugio}/{id_tipo_animal}', [PdfController::class, 'animales_por_refugio_y_tipo']);
+Route::get('certificado_adopcion/{tipo}/{id_animal}', [PdfController::class, 'certificado_adopcion']);
+
 // Ajax part 2
 Route::get('ejemplos_ajax', [App\Http\Controllers\AjaxController::class, 'ejemplos_ajax']);
 Route::get('buscar_animales_por_tipo/{id_tipo_animal}/{id_refugio}', [App\Http\Controllers\AjaxController::class, 'buscar_animales_por_tipo']);
 Route::get('cambiar_status_animal/{id_animal}/{id_tipo_animal}/{id_refugio}', [App\Http\Controllers\AjaxController::class, 'cambiar_status_animal']);
+Auth::routes();
+
+// EMAIL
+Route::get('form_enviar_correo', [EmailController::class,'form_enviar_correo']);
+Route::post('enviar_correo', [EmailController::class,'enviar_correo']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

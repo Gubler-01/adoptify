@@ -11,7 +11,5 @@
         <li><a href="{!! asset('bienvenida') !!}">Bienvenida</a></li>
         <li><a href="{!! asset('cruds') !!}">CRUD's</a></li>
     </ol>
-
-    <a href="{!! asset('menu') !!}"><h1>Ir a Menu</h1></a>
 </body>
 </html>
