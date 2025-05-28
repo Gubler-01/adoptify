@@ -9,6 +9,10 @@ use App\Models\Refugios;
 
 class PdfController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     // Mostrar la vista con los enlaces y formulario para los reportes
     public function genera_pdf()
     {

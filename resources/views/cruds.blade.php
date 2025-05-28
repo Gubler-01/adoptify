@@ -47,10 +47,8 @@
     <a href="{!! asset('seguimientos') !!}" class="btn btn-primary">Seguimientos</a>
     <a href="{!! asset('vacunas') !!}" class="btn btn-primary">Vacunas</a>
     <a href="{!! asset('fotos') !!}" class="btn btn-primary">Fotos</a>
-    <a href="{!! asset('ejemplos_ajax') !!}" class="btn btn-primary">Ejemplos AJAX</a>
-    <a href="{!! asset('genera_pdf') !!}" class="btn btn-primary">Generar Reportes</a>
-    <a href="{!! asset('form_enviar_correo') !!}" class="btn btn-primary">Enviar Correo Electrónico</a>
     <a href="{!! asset('datos-empresa') !!}" class="btn btn-primary">Datos empresa</a>
+    
 </div>
 
 @endsection

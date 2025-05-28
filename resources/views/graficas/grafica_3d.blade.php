@@ -1,106 +1,69 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>3d</title>
-
-    <!-- Gráficas con Highcharts.js -->
-    <script src="{!! asset('code/highcharts.js') !!}"></script>
-    <script src="{!! asset('code/modules/exporting.js') !!}"></script>
-    <script src="{!! asset('code/modules/export-data.js') !!}"></script>
-
-
+    <title>Gráfica 3D - Animales por Estado</title>
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+    <script src="{{ asset('code/highcharts.js') }}"></script>
+    <script src="{{ asset('code/highcharts-3d.js') }}"></script>
+    <script src="{{ asset('code/modules/exporting.js') }}"></script>
+    <script src="{{ asset('code/modules/export-data.js') }}"></script>
 </head>
 <body>
-    <h1>Gráfica</h1>
-
-        <ol>
-          <li><a href="{!! asset('bienvenida') !!}">Home</a></li>
-          <li><a href="{!! asset('graficas') !!}">Graficas</a></li>
-          <li>Gráfica con datos DB</li>
-        </ol>
-
-        <h2>Gráfica con datos DB</h2>  
-          <h2>Existencias de Productos</h2> 
-
-
-          <h2>Gráfica con datos DB</h2>  
-          <h2>Existencias de Productos</h2>          
-        
-
-        <?php
-        $campos = "";
-        foreach($productos as $prod){
-        $campos = $campos."[ '".$prod->nombre."' , ".$prod->existencia."],";  
-        }
-        ?>
-
-        <?= $campos; ?>
-
-        <div id="container" style="min-width: 600px; height: 500px; margin: 0 auto"></div>
-        
-
-
-
+    <h2>Animales por Estado</h2>  
+    <div id="container" style="min-width: 600px; height: 500px; margin: 0 auto"></div>
+    <br /><br />
+    <a href="{{ url('graficas') }}" class="button">Regresar</a>
+</body>
 <script type="text/javascript">
-
 Highcharts.chart('container', {
     chart: {
-        type: 'column'
+        type: 'column',
+        options3d: {
+            enabled: true,
+            alpha: 20, // Aumentamos el ángulo para un efecto 3D más pronunciado
+            beta: 20,
+            depth: 70, // Mayor profundidad
+            viewDistance: 25
+        }
     },
     title: {
-        text: 'Cantidad de existencias por productos'
-    },
-    subtitle: {
-        text: 'Mes de Mayo'
+        text: 'Animales por Estado (Activo, En Proceso, Adoptado)'
     },
     xAxis: {
-        type: 'category',
-        labels: {
-            rotation: -45,
-            style: {
-                fontSize: '13px',
-                fontFamily: 'Verdana, sans-serif'
-            }
+        categories: @json(array_column($data, 'name')),
+        title: {
+            text: 'Estado'
         }
     },
     yAxis: {
-        min: 0,
         title: {
-            text: 'Total de existencia'
-        }
-    },
-    legend: {
-        enabled: false
-    },
-    tooltip: {
-        pointFormat: 'Total de existencia: <b>{point.y:.0f} </b>'
+            text: 'Cantidad de Animales'
+        },
+        allowDecimals: false
     },
     series: [{
-        name: 'Population',
-        data: [
-
-            <?= $campos ?>
-        ],
-        dataLabels: {
-            enabled: true,
-            rotation: -90,
-            color: '#FFFFFF',
-            align: 'right',
-            format: '{point.y:.0f}', // one decimal
-            y: 10, // 10 pixels down from the top
-            style: {
-                fontSize: '13px',
-                fontFamily: 'Verdana, sans-serif'
+        name: 'Animales',
+        data: @json(array_column($data, 'y')),
+        color: '#007bff' // Azul para diferenciar de la gráfica de barras
+    }],
+    plotOptions: {
+        column: {
+            depth: 40, // Mayor profundidad para el efecto 3D
+            dataLabels: {
+                enabled: true,
+                format: '{point.y}',
+                style: {
+                    fontSize: '13px',
+                    fontFamily: 'Verdana, sans-serif'
+                }
             }
         }
-    }]
+    },
+    tooltip: {
+        pointFormat: 'Cantidad: <b>{point.y}</b>'
+    }
 });
-
 </script>
-
-
-</body>
 </html>
-    

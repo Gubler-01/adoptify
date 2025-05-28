@@ -7,53 +7,6 @@
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        // Mecanismo 1: Cambiar países, entidades y municipios
-        function buscar_entidades(id_pais) {
-            if (id_pais == 0) {
-                $("#id_entidad").html('<option value="0">Seleccionar...</option>');
-                $("#id_municipio").html('<option value="0">Seleccionar...</option>');
-                return;
-            }
-            var ruta = "{{ asset('combo_entidad_muni') }}/" + id_pais;
-            $.ajax({
-                type: 'GET',
-                url: ruta,
-                success: function(data) {
-                    $("#id_entidad").empty();
-                    $("#id_municipio").html('<option value="0">Seleccionar...</option>'); // Resetear municipios
-                    $('#id_entidad').append('<option value="0">Seleccionar...</option>');
-                    for (var i = 0; i < data.length; i++) {
-                        $('#id_entidad').append('<option value="' + data[i].id + '">' + data[i].nombre + '</option>');
-                    }
-                },
-                error: function() {
-                    alert('Error al cargar las entidades.');
-                }
-            });
-        }
-
-        function buscar_municipios(id_entidad) {
-            if (id_entidad == 0) {
-                $("#id_municipio").html('<option value="0">Seleccionar...</option>');
-                return;
-            }
-            var ruta = "{{ asset('combo_municipio') }}/" + id_entidad;
-            $.ajax({
-                type: 'GET',
-                url: ruta,
-                success: function(data) {
-                    $("#id_municipio").empty();
-                    $('#id_municipio').append('<option value="0">Seleccionar...</option>');
-                    for (var i = 0; i < data.length; i++) {
-                        $('#id_municipio').append('<option value="' + data[i].id + '">' + data[i].nombre + '</option>');
-                    }
-                },
-                error: function() {
-                    alert('Error al cargar los municipios.');
-                }
-            });
-        }
-
         // Mecanismo 2: Consultar animales por refugio y tipo de animal
         function buscar_animales(id_refugio, id_tipo_animal) {
             // Si no se ha seleccionado un refugio, no hacemos la consulta
@@ -86,28 +39,7 @@
 </head>
 <body>
 <div class="container">
-    <h1>Ejemplos AJAX</h1>
-
-    <!-- Mecanismo 1: Países, Entidades, Municipios -->
-    <h2>Seleccionar Ubicación</h2>
-    <label for="id_pais">País</label>
-    <select name="id_pais" id="id_pais" onchange="buscar_entidades(this.value);">
-        <option value="0">Seleccionar...</option>
-        @foreach($paises as $pais)
-            <option value="{{ $pais->id }}">{{ $pais->nombre }}</option>
-        @endforeach
-    </select>
-    <br /><br />
-    <label for="id_entidad">Entidad</label>
-    <select name="id_entidad" id="id_entidad" onchange="buscar_municipios(this.value);">
-        <option value="0">Seleccionar...</option>
-    </select>
-    <br /><br />
-    <label for="id_municipio">Municipio</label>
-    <select name="id_municipio" id="id_municipio">
-        <option value="0">Seleccionar...</option>
-    </select>
-    <br /><br />
+    <h1>Consultar animales</h1>
 
     <!-- Mecanismo 2: Consultar animales por refugio y tipo de animal -->
     <h2>Ver animales por refugio y tipo</h2>
