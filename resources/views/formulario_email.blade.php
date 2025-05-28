@@ -27,7 +27,7 @@
 
     <label id="contenido_mail" >Contenido:</label>
     <br />
-    <textarea name="contenido_mail" id="contenido_mail" rows="10" cols="70" placeholder="Ingresa el contenido_mail"></textarea>
+    <textarea name="contenido_mail" id="contenido_mail" rows="10" cols="70" placeholder="Ingresa el contenido del mensaje"></textarea>
 
     <br />
     <br />
@@ -39,6 +39,6 @@
     </div>
   <br /><br />
   <br />
-    <a href="{!! asset('index') !!}" class="btn btn-primary btn-lg">REGRESAR A WELCOME</a>
+    <a href="{!! asset('principal') !!}" class="btn btn-primary btn-lg">REGRESAR</a>
 
 @endsection()

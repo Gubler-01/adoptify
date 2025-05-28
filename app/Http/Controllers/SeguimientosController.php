@@ -9,6 +9,10 @@ use App\Models\Solicitudes_Adopcion;
 
 class SeguimientosController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      */

@@ -8,31 +8,25 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                  <a class="nav-link" href="index.html">HOME</a>
+                  <a class="nav-link" href="{!! asset('principal') !!}">Principal</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="about.html">ABOUT</a>
+                  <a class="nav-link" href="{!! asset('cruds') !!}">CRUDs</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="product.html">OUR PRODUCTS</a>
+                  <a class="nav-link" href="{!! asset('form_enviar_correo') !!}">Enviar Correo</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="video.html">VIDEO GAMES</a>
+                  <a class="nav-link" href="{!! asset('animales') !!}">Mascotas</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="remot.html">REMOT CONTROL</a>
+                  <a class="nav-link" href="{!! asset('graficas') !!}">Graficas</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="contact.html">CONTACT US</a>
+                  <a class="nav-link" href="{!! asset('genera_pdf') !!}">PDFs</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#"><img src="{!! asset( 'estilos/images/search-icon.png') !!}"></a>
-                </li>
-                <li class="nav-item active">
-                  <a class="nav-link" href="#">SIGN IN</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">REGISTER</a>
+                  <a class="nav-link" href="{!! asset('ejemplos_ajax') !!}">Consultar animales</a>
                 </li>
               </ul>
             </div>

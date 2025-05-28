@@ -107,7 +107,7 @@
     <button onclick="generar_certificado(2)">Descargar Certificado</button>
     <br /><br />
 
-    <a href="{!! asset('cruds') !!}" class="button">Regresar a los CRUDs</a>
+    <a href="{!! asset('principal') !!}" class="button">Regresar</a>
 </div>
 </body>
 </html>

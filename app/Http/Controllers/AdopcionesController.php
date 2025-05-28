@@ -8,6 +8,10 @@ use App\Models\Solicitudes_Adopciones;
 
 class AdopcionesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      */

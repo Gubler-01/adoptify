@@ -29,6 +29,6 @@
     </div>
   <br /><br />
   <br />
-    <a href="{!! asset('index') !!}" class="btn btn-primary btn-lg">REGRESAR A WELCOME</a>
+    <a href="{!! asset('principal') !!}" class="btn btn-primary btn-lg">REGRESAR</a>
 
 @endsection()

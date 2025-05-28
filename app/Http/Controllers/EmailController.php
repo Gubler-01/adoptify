@@ -7,6 +7,10 @@ use Illuminate\Support\Facades\Mail;
 
 class EmailController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function form_enviar_correo()
     {
         return view("formulario_email");
